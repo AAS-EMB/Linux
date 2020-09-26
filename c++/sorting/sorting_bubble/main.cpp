@@ -27,6 +27,11 @@ int main(int argc, char *argv[])
 	return 0;
 }
 
+/*!
+ * @brief The sort method of the bubble
+ * @param pArray Pointer to the object
+ * @param ArraySize Size object
+ */
 void SortingBubble(int *pArray, unsigned int ArraySize)
 {
 	int TempValue;
