@@ -1,6 +1,6 @@
 #include <iostream>
 
-void SortingBubble(int *pArray, unsigned int ArraySize);
+void SortingInsertion(int *pArray, unsigned int ArraySize);
 
 int main(int argc, char *argv[])
 {
@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 		std::cout << "\r\nElement number " << CurrentIndex << ": ";
 		std::cin >> Array[CurrentIndex];
 	}
-	SortingBubble(Array, ArraySize - 1);
-	std::cout << "\r\nSorted array by bubble method" << std::endl;
+	SortingInsertion(Array, ArraySize);
+	std::cout << "\r\nSorted array by insertion method" << std::endl;
 	for(unsigned int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++)
 	{
 		std::cout << "" << Array[CurrentIndex] << " ";
@@ -27,27 +27,23 @@ int main(int argc, char *argv[])
 }
 
 /*!
- * @brief The sort method of the bubble
+ * @brief The sort method of the insertion
  * @param pArray Pointer to the object
  * @param ArraySize Size object
  */
-void SortingBubble(int *pArray, unsigned int ArraySize)
+void SortingInsertion(int *pArray, unsigned int ArraySize)
 {
-	int TempValue;
-	bool IsEndSorting = false;
+	int TempValue, PrevIndex;
 
-	while(IsEndSorting == false)
+	for(unsigned int CurrentIndex = 1; CurrentIndex < ArraySize; CurrentIndex++)
 	{
-		IsEndSorting = true;
-		for(unsigned int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++)
+		TempValue = pArray[CurrentIndex];
+		PrevIndex = CurrentIndex - 1;
+		while(PrevIndex >= 0 && pArray[PrevIndex] > TempValue)
 		{
-			if(pArray[CurrentIndex] > pArray[CurrentIndex + 1])
-			{
-				TempValue = pArray[CurrentIndex];
-				pArray[CurrentIndex] = pArray[CurrentIndex + 1];
-				pArray[CurrentIndex + 1] = TempValue;
-				IsEndSorting = false;
-			}
+			pArray[PrevIndex + 1] = pArray[PrevIndex];
+			pArray[PrevIndex] = TempValue;
+			PrevIndex--;
 		}
 	}
 }

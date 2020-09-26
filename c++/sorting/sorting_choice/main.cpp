@@ -1,6 +1,6 @@
 #include <iostream>
 
-void SortingBubble(int *pArray, unsigned int ArraySize);
+void SortingChoice(int *pArray, unsigned int ArraySize);
 
 int main(int argc, char *argv[])
 {
@@ -15,8 +15,8 @@ int main(int argc, char *argv[])
 		std::cout << "\r\nElement number " << CurrentIndex << ": ";
 		std::cin >> Array[CurrentIndex];
 	}
-	SortingBubble(Array, ArraySize - 1);
-	std::cout << "\r\nSorted array by bubble method" << std::endl;
+	SortingChoice(Array, ArraySize);
+	std::cout << "\r\nSorted array by choice method" << std::endl;
 	for(unsigned int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++)
 	{
 		std::cout << "" << Array[CurrentIndex] << " ";
@@ -27,26 +27,23 @@ int main(int argc, char *argv[])
 }
 
 /*!
- * @brief The sort method of the bubble
+ * @brief The sort method of the choice
  * @param pArray Pointer to the object
  * @param ArraySize Size object
  */
-void SortingBubble(int *pArray, unsigned int ArraySize)
+void SortingChoice(int *pArray, unsigned int ArraySize)
 {
 	int TempValue;
-	bool IsEndSorting = false;
 
-	while(IsEndSorting == false)
+	for(unsigned int CurrentSortIndex = 0; CurrentSortIndex < ArraySize; CurrentSortIndex++)
 	{
-		IsEndSorting = true;
-		for(unsigned int CurrentIndex = 0; CurrentIndex < ArraySize; CurrentIndex++)
+		for(unsigned int CurrentIndex = CurrentSortIndex + 1; CurrentIndex < ArraySize; CurrentIndex++)
 		{
-			if(pArray[CurrentIndex] > pArray[CurrentIndex + 1])
+			if(pArray[CurrentSortIndex] > pArray[CurrentIndex])
 			{
-				TempValue = pArray[CurrentIndex];
-				pArray[CurrentIndex] = pArray[CurrentIndex + 1];
-				pArray[CurrentIndex + 1] = TempValue;
-				IsEndSorting = false;
+				TempValue = pArray[CurrentSortIndex];
+				pArray[CurrentSortIndex] = pArray[CurrentIndex];
+				pArray[CurrentIndex] = TempValue;
 			}
 		}
 	}
