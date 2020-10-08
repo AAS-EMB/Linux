@@ -32,7 +32,7 @@ void* ThreadCallback(void *arg)
 
 int main(int argc, char *argv[])
 {
-	Thread_t ThreadDescr[MaxCountThread];
+    Thread_t ThreadDescr[MaxCountThread];
     pthread_t Thread[MaxCountThread];
 
     for(unsigned int i = 0; i < MaxCountThread; i++)
