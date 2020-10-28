@@ -1,53 +1,30 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <errno.h>
-#include <pthread.h>
 #include <iostream>
-#include <unistd.h>
+#include <chrono>
+#include <thread>
+#include <mutex>
 
-const unsigned int MaxCountThread = 4; ///< Max count create thread
-
-/*
- * Description for create thread's
- */
-typedef struct Thread_s
-{
-	unsigned int NumberThread;
-	int ArgThread;
-}Thread_t;
+std::mutex ThreadMutex;
 
 /*!
  * @brief Callback function Thread
  */
-void* ThreadCallback(void *arg)
+void ThreadCallback(void)
 {
-	Thread_t *pThreadDescr = (Thread_t*)arg;
-
-	while(1)
-	{
-		std::cout << "NumberThread: " << pThreadDescr->NumberThread << "\tArgThread: " << pThreadDescr->ArgThread << std::endl;
-		sleep(1);
-	}
+	ThreadMutex.lock();
+	std::cout << "Enter thread ID = " << std::this_thread::get_id() << std::endl;
+	std::this_thread::sleep_for(std::chrono::seconds(rand()%10));
+	std::cout << "Leave thread ID = " << std::this_thread::get_id() << std::endl;
+	ThreadMutex.unlock();
 }
 
-int main(int argc, char *argv[])
+int main(void)
 {
-    Thread_t ThreadDescr[MaxCountThread];
-    pthread_t Thread[MaxCountThread];
-
-    for(unsigned int i = 0; i < MaxCountThread; i++)
-    {
-    	ThreadDescr[i].NumberThread = i;
-    	ThreadDescr[i].ArgThread = rand();
-    	if(pthread_create(Thread + i, nullptr, ThreadCallback, ThreadDescr + i) != 0)
-    	{
-    		std::cerr << "Error create thread " << i << std::endl;
-    		return EXIT_FAILURE;
-    	}
-    }
-
-	while(1)
-	{
-		sleep(10);
-	}
+     srand((unsigned int)time(0));
+     std::thread t1(ThreadCallback);
+     std::thread t2(ThreadCallback);
+     std::thread t3(ThreadCallback);
+     t1.join();
+     t2.join();
+     t3.join();
+     return 0;
 }
