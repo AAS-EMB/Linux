@@ -10,11 +10,11 @@ std::mutex ThreadMutex;
  */
 void ThreadCallback(void)
 {
-	ThreadMutex.lock();
-	std::cout << "Enter thread ID = " << std::this_thread::get_id() << std::endl;
-	std::this_thread::sleep_for(std::chrono::seconds(rand()%10));
-	std::cout << "Leave thread ID = " << std::this_thread::get_id() << std::endl;
-	ThreadMutex.unlock();
+    ThreadMutex.lock();
+    std::cout << "Enter thread ID = " << std::this_thread::get_id() << std::endl;
+    std::this_thread::sleep_for(std::chrono::seconds(rand()%10));
+    std::cout << "Leave thread ID = " << std::this_thread::get_id() << std::endl;
+    ThreadMutex.unlock();
 }
 
 int main(void)
