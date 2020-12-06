@@ -17,10 +17,10 @@ int main(int argc, char *argv[])
 	}
 	std::vector <int> SortedArray = QuickSort(Array);
 	std::cout << "\r\nSorted array by quick method" << std::endl;
-    for(auto now : SortedArray) {
-        std::cout << now << " ";
-    }
-    std::cout << std::endl;
+	for(auto now : SortedArray) {
+		std::cout << now << " ";
+	}
+	std::cout << std::endl;
 	return 0;
 }
 
