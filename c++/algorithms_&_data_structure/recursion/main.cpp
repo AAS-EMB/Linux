@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
 {
 	unsigned int Value;
 	std::cout << "\r\nEnter a value for calculating the factorial: ";
-    std::cin >> Value;
+	std::cin >> Value;
 	std::cout << Value << "!" << " = " << Factorial(Value) << std::endl;
 	return 0;
 }
