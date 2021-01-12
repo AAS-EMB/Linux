@@ -14,8 +14,8 @@ int main(int argc, char **argv) {
 
     pHandle = dlopen(argv[1], RTLD_LAZY);
     if(!pHandle) {
-   	    fprintf(stderr, "%s\n", dlerror());
-	    exit(EXIT_FAILURE);
+        fprintf(stderr, "%s\n", dlerror());
+        exit(EXIT_FAILURE);
     }
     dlerror();
     pFunc = (int (*)(int)) dlsym(pHandle, argv[2]);

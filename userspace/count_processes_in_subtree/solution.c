@@ -33,9 +33,9 @@ int main(int argc, char **argv) {
             } else if(!strncmp(pLine, "PPid:", 5)) {
                 sscanf(pLine, "%*s %d", &TmpPPID);
                 if(TmpPPID == PPID) {
-	                PID[Count] = TmpPID;
-	                Count++;
-	            }	
+                    PID[Count] = TmpPID;
+                    Count++;
+                }	
             }
         }
         free(pLine);
@@ -44,7 +44,7 @@ int main(int argc, char **argv) {
         Len = 0;
         if(PID[It] != 0) {
             PPID = PID[It];
-	        It++;
+            It++;
             if((pFile = popen("cat /proc/[0-9]*/status", "r")) == NULL) {
                 perror("fopen");
                 exit(EXIT_FAILURE);
