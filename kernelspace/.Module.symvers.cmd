@@ -1,0 +1,1 @@
+cmd_/media/anton/Windows/Github/Linux/kernelspace/Module.symvers := sed 's/ko$$/o/' /media/anton/Windows/Github/Linux/kernelspace/modules.order | scripts/mod/modpost  -a   -o /media/anton/Windows/Github/Linux/kernelspace/Module.symvers -e -i Module.symvers   -T -

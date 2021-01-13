@@ -1,0 +1,1 @@
+cmd_/media/anton/Windows/Github/Linux/kernelspace/solution.mod := { echo  /media/anton/Windows/Github/Linux/kernelspace/solution.o;  echo; } > /media/anton/Windows/Github/Linux/kernelspace/solution.mod
