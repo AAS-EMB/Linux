@@ -1,1 +1,0 @@
-cmd_/media/anton/Windows/Github/Linux/kernelspace/solution.ko := ld -r -m elf_x86_64  --build-id=sha1  -T scripts/module.lds -o /media/anton/Windows/Github/Linux/kernelspace/solution.ko /media/anton/Windows/Github/Linux/kernelspace/solution.o /media/anton/Windows/Github/Linux/kernelspace/solution.mod.o;  true
