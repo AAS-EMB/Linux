@@ -12,7 +12,7 @@ The poll () method is used to use non-blocking sockets. The programming language
 * Запустить исполняемый файл в качестве демона;
 * При помощи утилиты can-utils можно работать с CAN шиной;
 * При помощи утилиты netcat можно работать с UDP.
-
+----------------------------------------------------------------------------------------------
 * Run make in the project directory;
 * Run the executable file as a daemon;
 * Using the can-utils utility, you can work with the CAN bus;
